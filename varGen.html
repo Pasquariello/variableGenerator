@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>Minimum Bootstrap HTML Skeleton</title>
+
+    <!--  -->
+
+    <style>
+        .backround {
+            width: 350px;
+            background-color: #E0E2DB;
+            padding: 12px;
+            margin: 30px;
+            border: 8px solid #00A5CF;
+            -webkit-box-shadow: 7px 9px 39px 1px rgba(61, 82, 87, 0.41);
+            -moz-box-shadow: 7px 9px 39px 1px rgba(61, 82, 87, 0.41);
+            box-shadow: 7px 9px 39px 1px rgba(61, 82, 87, 0.41);
+        }
+        
+        .inner {
+            padding: 12px;
+        }
+        
+        .sections {
+            margin: 5px;
+        }
+        
+        button {
+            position: relative;
+            background-color: #50514F;
+            color: #FFFCFF;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!--make a variable-->
+        <div class="backround">
+            <h1> Create A Variable</h1>
+            <form class='inner'>
+                <label>Variable Name</label>
+                <input type='text' id="vName" class='sections' />
+                <br>
+                <label>Variable value</label>
+                <input type='text' id="vValue" class='sections' />
+                <br>
+                <label> variable is a string:</label>
+                <input type="checkbox" id="vString" />
+                <br>
+                <label> Declare a new Variable:</label>
+                <input type="checkbox" id="vNewVar" />
+                <br>
+
+                <textarea id="vTextArea">
+                </textarea>
+
+
+            </form>
+
+            <button type="button" class="btn" onClick='makeVariable(vName, vValue, vString, vNewVar, vTextArea)'>Submit</button>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+        //function that makes a Variable    
+        function makeVariable(vName, vValue, vString, vNewVar, vTextBox) {
+
+            var vName = document.getElementById('vName').value;
+            var vValue = document.getElementById('vValue').value;
+            var vString = document.getElementById('vString').checked;
+            var vNewVar = document.getElementById('vNewVar').checked;
+            var content = '';
+
+
+
+
+            if (vString = document.getElementById('vString').checked) {
+                vValue = '"' + vValue + '"';
+
+            } else {
+                vValue = vValue;
+            }
+
+            if (vNewVar = document.getElementById('vNewVar').checked) {
+                document.getElementById('vTextArea').innerHTML = 'var ' + vName + '= ' + vValue + ';';
+            } else {
+                document.getElementById('vTextArea').innerHTML = vName + '= ' + vValue + ';';
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
